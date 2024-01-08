@@ -18,6 +18,7 @@ div {
     justify-content: space-around;
     width: 120px;
     height: 40px;
+    margin-top: 3px;
     background-color: white;
 }
 
@@ -29,6 +30,7 @@ div {
     gap: 4px;
     width: 120px;
     height: 120px;
+    margin-bottom: 3px;
 }
 
 button {
