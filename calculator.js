@@ -21,6 +21,15 @@ const display = document.querySelector('#displayText');
 let displayValue = [];
 
 function populateDisplay() {
-    display.innerHTML = displayValue.join(" ").toString().replace("*", "&times;").replace("/", "&divide;").replace("+", "&plus;").replace("-", "&ndash;");
+    display.innerHTML = displayValue.join(" ").toString();
+};
+
+
+let arithmetic = document.querySelectorAll('.arithmetic');
+for (let i = 0; i < arithmetic.length; i++) {
+        arithmetic[i].addEventListener("click", () => {
+            displayValue.push(arithmetic[i].innerHTML);
+            populateDisplay();
+    });
 };
 
