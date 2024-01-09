@@ -15,3 +15,11 @@ function operate(num1, operator, num2) {
         return "ERROR";
     };
 };
+
+const display = document.querySelector('#displayText');
+
+let displayValue = [];
+
+function populateDisplay() {
+    display.innerHTML = displayValue.join(" ").toString();
+};
