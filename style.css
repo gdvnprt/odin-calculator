@@ -29,7 +29,7 @@ div {
     justify-content: space-around;
     gap: 4px;
     width: 120px;
-    height: 120px;
+    height: 150px;
     margin-bottom: 3px;
 }
 
@@ -45,9 +45,17 @@ button {
 }
 
 button.operator {
+    background-color: #8934A4;
+}
+
+button.delete {
     background-color: #A71621;
 }
 
-button.execute {
+button.bottomrow {
+    width: 50px;
+}
+
+button#execute {
     background-color: #2A8B37;
 }
