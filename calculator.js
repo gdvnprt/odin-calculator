@@ -21,5 +21,6 @@ const display = document.querySelector('#displayText');
 let displayValue = [];
 
 function populateDisplay() {
-    display.innerHTML = displayValue.join(" ").toString();
+    display.innerHTML = displayValue.join(" ").toString().replace("*", "&times;").replace("/", "&divide;").replace("+", "&plus;").replace("-", "&ndash;");
 };
+
