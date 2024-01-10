@@ -1,15 +1,15 @@
-function operate(num1, operator, num2) {
-    if (operator === '+') {
-        return num1 += num2;
-    } else if (operator === '-') {
-        return num1 -= num2;
-    } else if (operator === '*') {
-        return num1 * num2;
-    } else if (operator === '/'){
-        if (num2 === 0){
+function operate(arr) {
+    if (arr[1] === '+') {
+        return parseInt(arr[0]) + parseInt(arr[2]);
+    } else if (arr[1] === '–') {
+        return arr[0] -= arr[2];
+    } else if (arr[1] === '×') {
+        return arr[0] * arr[2];
+    } else if (arr[1] === '÷'){
+        if (arr[2] === '0'){
         return "Don't divide by zero, stupid.";
         } else {
-        return (num1 / num2);
+        return (arr[0] / arr[2]);
         };
     } else {
         return "ERROR";
@@ -44,4 +44,13 @@ clear.addEventListener("click", () => {
         displayValue.pop();
         populateDisplay();
     };
+});
+
+let execute = document.querySelector('#execute');
+execute.addEventListener("click", () => {
+    displayValue.push(operate(displayValue));
+    for (let i = displayValue.length - 1; i > 0; i--) {
+        displayValue.shift();
+    };
+    populateDisplay();
 });
