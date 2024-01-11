@@ -48,9 +48,9 @@ clear.addEventListener("click", () => {
 
 let execute = document.querySelector('#execute');
 execute.addEventListener("click", () => {
-    displayValue.push(operate(displayValue));
-    for (let i = displayValue.length - 1; i > 0; i--) {
-        displayValue.shift();
+    displayValue.unshift(operate(displayValue));
+    for (let i = 0; i < 3; i++) {
+        displayValue.pop();
     };
     populateDisplay();
 });
