@@ -20,6 +20,12 @@ div {
     height: 40px;
     margin-top: 3px;
     background-color: white;
+    min-width: 0;
+    min-height: 0;
+}
+
+#displayText {
+    font-size: 15px;
 }
 
 .container {
