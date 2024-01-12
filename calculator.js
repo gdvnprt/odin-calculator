@@ -32,6 +32,20 @@ for (let i = 0; i < arithmetic.length; i++) {
     });
 };
 
+let number = document.querySelectorAll('.number');
+for (let i = 0; i < number.length; i++) {
+        number[i].addEventListener("click", () => {
+            displayValue.push(number[i].innerHTML);
+            let previousNumber = displayValue.length - 2
+            if (typeof (parseInt(displayValue[previousNumber] == 'number')) && displayValue.length !== 0) {
+                let joinedNumber = displayValue[previousNumber].concat("", displayValue[previousNumber + 1]);
+                displayValue.push(joinedNumber);
+                displayValue.splice(previousNumber,2);
+            }
+            populateDisplay();
+    });
+};
+
 let backspace = document.querySelector('#backspace');
 backspace.addEventListener("click", () => {
     displayValue.pop();
