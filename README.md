@@ -3,14 +3,12 @@ Calculator project for The Odin Project learning.
 
 TO DO:
 
-1.  Adjust function to work with multi-digit numbers
+1.  Adjust operator keys so no multiple operators in a row  
 
-2.  Round answers so no overflow
+2.  Add decimal input functionality
 
-3.  Adjust operator keys so no multiple operators in a row  
+3.  Round answers so no overflow
 
-4.  Add decimal input functionality
+4.  See if dynamic text resizing is possible if input is very long
 
-5.  See if dynamic text resizing is possible if input is very long
-
-6. (optional) keyboard support
+5. (optional) keyboard support
