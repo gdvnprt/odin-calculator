@@ -24,20 +24,21 @@ function populateDisplay() {
 };
 
 
+/* base function for button use
 let arithmetic = document.querySelectorAll('.arithmetic');
 for (let i = 0; i < arithmetic.length; i++) {
         arithmetic[i].addEventListener("click", () => {
             displayValue.push(arithmetic[i].innerHTML);
             populateDisplay();
     });
-};
+};*/
 
 let number = document.querySelectorAll('.number');
 for (let i = 0; i < number.length; i++) {
         number[i].addEventListener("click", () => {
             displayValue.push(number[i].innerHTML);
             populateDisplay();
-            let previousNumber = displayValue.length - 2
+            let previousNumber = displayValue.length - 2;
             if (displayValue.length > 0 && displayValue[previousNumber] != '+' | '–' | '×' | '÷') {
                 let joinedNumber = displayValue[previousNumber].concat("", displayValue[previousNumber + 1]);
                 displayValue.push(joinedNumber);
@@ -47,9 +48,20 @@ for (let i = 0; i < number.length; i++) {
     });
 };
 
+let operator = document.querySelectorAll('.operator');
+for (let i = 0; i < operator.length; i++) {
+    let previousNumber = displayValue.length - 2;
+    if (displayValue[previousNumber] != '+' | '–' | '×' | '÷') {
+        operator[i].addEventListener("click", () => {
+            displayValue.push(operator[i].innerHTML);
+            populateDisplay();
+        });
+    };
+};
+
 let backspace = document.querySelector('#backspace');
 backspace.addEventListener("click", () => {
-    displayValue.pop();
+    displayValue.pop(); 
     populateDisplay();
 });
 
