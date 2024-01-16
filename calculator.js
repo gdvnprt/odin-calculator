@@ -55,16 +55,35 @@ for (let i = 0; i < number.length; i++) {
 let operator = document.querySelectorAll('.operator');
 for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener("click", () => {
-        let previousNumber = displayValue.length - 1;
-        if (displayValue[previousNumber] !== '+' && 
-            displayValue[previousNumber] !== '–' && 
-            displayValue[previousNumber] !== '×' && 
-            displayValue[previousNumber] !== '÷') {
+        let previousDigit = displayValue.length - 1;
+        if (displayValue[previousDigit] !== '+' && 
+            displayValue[previousDigit] !== '–' && 
+            displayValue[previousDigit] !== '×' && 
+            displayValue[previousDigit] !== '÷') {
                 displayValue.push(operator[i].innerHTML);
                 populateDisplay();
             };
     });
 };
+
+let decimal = document.querySelector('.decimal');
+decimal.addEventListener("click",() => {
+    let previousDigit = displayValue.length - 1;
+        if (displayValue[previousDigit].includes('.') === false) {
+            displayValue.push(decimal.innerHTML);
+            let previousNumber = displayValue.length - 2;
+            if (displayValue.length > 0 && 
+                displayValue[previousNumber] !== '+' && 
+                displayValue[previousNumber] !== '–' && 
+                displayValue[previousNumber] !== '×' && 
+                displayValue[previousNumber] !== '÷') {
+                    let joinedNumber = displayValue[previousNumber].concat("", displayValue[previousNumber + 1]);
+                    displayValue.push(joinedNumber);
+                    displayValue.splice(previousNumber,2);
+                };
+        };
+    populateDisplay();
+});
 
 let backspace = document.querySelector('#backspace');
 backspace.addEventListener("click", () => {
