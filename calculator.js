@@ -39,24 +39,31 @@ for (let i = 0; i < number.length; i++) {
             displayValue.push(number[i].innerHTML);
             populateDisplay();
             let previousNumber = displayValue.length - 2;
-            if (displayValue.length > 0 && displayValue[previousNumber] != '+' | '–' | '×' | '÷') {
-                let joinedNumber = displayValue[previousNumber].concat("", displayValue[previousNumber + 1]);
-                displayValue.push(joinedNumber);
-                displayValue.splice(previousNumber,2);
-                populateDisplay();
+            if (displayValue.length > 0 && 
+                displayValue[previousNumber] !== '+' && 
+                displayValue[previousNumber] !== '–' && 
+                displayValue[previousNumber] !== '×' && 
+                displayValue[previousNumber] !== '÷') {
+                    let joinedNumber = displayValue[previousNumber].concat("", displayValue[previousNumber + 1]);
+                    displayValue.push(joinedNumber);
+                    displayValue.splice(previousNumber,2);
+                    populateDisplay();
             }
     });
 };
 
 let operator = document.querySelectorAll('.operator');
 for (let i = 0; i < operator.length; i++) {
-    let previousNumber = displayValue.length - 2;
-    if (displayValue[previousNumber] != '+' | '–' | '×' | '÷') {
-        operator[i].addEventListener("click", () => {
-            displayValue.push(operator[i].innerHTML);
-            populateDisplay();
-        });
-    };
+    operator[i].addEventListener("click", () => {
+        let previousNumber = displayValue.length - 1;
+        if (displayValue[previousNumber] !== '+' && 
+            displayValue[previousNumber] !== '–' && 
+            displayValue[previousNumber] !== '×' && 
+            displayValue[previousNumber] !== '÷') {
+                displayValue.push(operator[i].innerHTML);
+                populateDisplay();
+            };
+    });
 };
 
 let backspace = document.querySelector('#backspace');
