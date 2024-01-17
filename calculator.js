@@ -112,8 +112,8 @@ let execute = document.querySelector('#execute');
 execute.addEventListener("click", () => {
     while (displayValue.length >= 3) {
         let solution = operate(displayValue)
-        if (solution.length > 10 ||
-            solution.length === undefined) {
+        if (solution.toString().length > 10 ||
+            solution.toString().length === undefined) {
             displayValue.unshift(solution.toPrecision(10));
             displayValue.splice(1, 3);
         } else {
