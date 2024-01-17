@@ -102,7 +102,8 @@ clear.addEventListener("click", () => {
 let execute = document.querySelector('#execute');
 execute.addEventListener("click", () => {
     while (displayValue.length >= 3) {
-        displayValue.unshift(operate(displayValue));
+        let solution = operate(displayValue)
+        displayValue.unshift(solution.toPrecision(6));
         displayValue.splice(1, 3);
     };
     populateDisplay();
