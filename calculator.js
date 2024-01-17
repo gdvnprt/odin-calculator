@@ -23,15 +23,16 @@ function populateDisplay() {
     display.innerHTML = displayValue.join(" ").toString();
 };
 
+/* add dynamic text resize to populateDisplay?
+    not working for some reason
 
-/* base function for button use
-let arithmetic = document.querySelectorAll('.arithmetic');
-for (let i = 0; i < arithmetic.length; i++) {
-        arithmetic[i].addEventListener("click", () => {
-            displayValue.push(arithmetic[i].innerHTML);
-            populateDisplay();
-    });
-};*/
+    if (displayValue.join('').length > 8) {
+        display.style.fontsize = '30px';
+    } else {
+        display.style.fontsize = '60px';
+    }; 
+*/
+
 
 let number = document.querySelectorAll('.number');
 for (let i = 0; i < number.length; i++) {
@@ -122,5 +123,3 @@ execute.addEventListener("click", () => {
     };
     populateDisplay();
 });
-
-
