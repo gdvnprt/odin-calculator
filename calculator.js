@@ -87,7 +87,15 @@ decimal.addEventListener("click",() => {
 
 let backspace = document.querySelector('#backspace');
 backspace.addEventListener("click", () => {
-    displayValue.pop(); 
+    let previousValue = displayValue.length - 1;
+    if (displayValue[previousValue].length > 1) {
+        let previousSpot = displayValue[previousValue].length - 2;
+        let newValue = displayValue[previousSpot].slice(previousSpot, 1);
+        displayValue.pop();
+        displayValue.push(newValue);
+    } else {
+        displayValue.pop();
+    }; 
     populateDisplay();
 });
 
@@ -105,7 +113,7 @@ execute.addEventListener("click", () => {
         let solution = operate(displayValue)
         if (solution.length > 10 ||
             solution.length === undefined) {
-            displayValue.unshift(solution.toPrecision(8));
+            displayValue.unshift(solution.toPrecision(10));
             displayValue.splice(1, 3);
         } else {
             displayValue.unshift(solution);
@@ -116,24 +124,3 @@ execute.addEventListener("click", () => {
 });
 
 
-/* auto text resize attempt
-
-const displayContainer = document.querySelector('.display');
-
-const isOverflown = ({element}) => element.scrollHeight > element.innerHeight;
-
-const resizeText = ({element, parent}) => {
-    let p = 20;
-    let overflow = false;
-    const maxSize = 40;
-
-    while (!overflow && p < maxSize) {
-        element.style.fontsize = `${p}px`;
-        overflow = isOverflown(parent);
-        if (!overflow) p++;
-    };
-
-    element.style.fontSize = `${p - 1}px`;
-};
-
-resizeText({display, displayContainer}); */
