@@ -57,7 +57,8 @@ let operator = document.querySelectorAll('.operator');
 for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener("click", () => {
         let previousDigit = displayValue.length - 1;
-        if (displayValue[previousDigit] !== '+' && 
+        if (displayValue.length > 0 &&
+            displayValue[previousDigit] !== '+' && 
             displayValue[previousDigit] !== '–' && 
             displayValue[previousDigit] !== '×' && 
             displayValue[previousDigit] !== '÷') {
