@@ -40,7 +40,7 @@ for (let i = 0; i < number.length; i++) {
             displayValue.push(number[i].innerHTML);
             populateDisplay();
             let previousNumber = displayValue.length - 2;
-            if (displayValue.length > 0 && 
+            if (displayValue.length > 1 && 
                 displayValue[previousNumber] !== '+' && 
                 displayValue[previousNumber] !== '–' && 
                 displayValue[previousNumber] !== '×' && 
