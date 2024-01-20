@@ -22,9 +22,9 @@ let displayValue = [];
 function populateDisplay() {
     display.innerHTML = displayValue.join(" ").toString();
     if (display.innerHTML.length > 8) {
-        display.style.fontsize = '30px';
+        display.style.fontSize = '30px';
     } else {
-        display.style.fontsize = '60px';
+        display.style.fontSize = '60px';
     };
 };
 
