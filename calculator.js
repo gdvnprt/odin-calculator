@@ -21,6 +21,11 @@ let displayValue = [];
 
 function populateDisplay() {
     display.innerHTML = displayValue.join(" ").toString();
+    if (display.innerHTML.length > 8) {
+        display.style.fontsize = '30px';
+    } else {
+        display.style.fontsize = '60px';
+    };
 };
 
 /* add dynamic text resize to populateDisplay?
@@ -37,19 +42,18 @@ function populateDisplay() {
 let number = document.querySelectorAll('.number');
 for (let i = 0; i < number.length; i++) {
         number[i].addEventListener("click", () => {
-            displayValue.push(number[i].innerHTML);
-            populateDisplay();
-            let previousNumber = displayValue.length - 2;
-            if (displayValue.length > 1 && 
+            let previousNumber = displayValue.length - 1;
+            if (displayValue.length > 0 && 
                 displayValue[previousNumber] !== '+' && 
                 displayValue[previousNumber] !== '–' && 
                 displayValue[previousNumber] !== '×' && 
                 displayValue[previousNumber] !== '÷') {
-                    let joinedNumber = displayValue[previousNumber].concat("", displayValue[previousNumber + 1]);
+                    let joinedNumber = displayValue.pop().concat("", number[i].innerHTML);
                     displayValue.push(joinedNumber);
-                    displayValue.splice(previousNumber,2);
-                    populateDisplay();
+            } else {
+                displayValue.push(number[i].innerHTML);
             }
+            populateDisplay();
     });
 };
 
